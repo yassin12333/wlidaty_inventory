@@ -1,0 +1,66 @@
+<odoo>
+    <!-- Vue Liste (Tree View) -->
+    <record id="view_inventory_item_tree" model="ir.ui.view">
+        <field name="name">inventory.item.tree</field>
+        <field name="model">inventory.item</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory Items" decoration-danger="quantity &lt; 5" decoration-warning="quantity &lt; 10">
+                <field name="name"/>
+                <field name="sku"/>
+                <field name="quantity" widget="progressbar"/>
+                <field name="price" widget="monetary"/>
+                <field name="supplier"/>
+                <field name="category"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire (Form View) -->
+    <record id="view_inventory_item_form" model="ir.ui.view">
+        <field name="name">inventory.item.form</field>
+        <field name="model">inventory.item</field>
+        <field name="arch" type="xml">
+            <form string="Inventory Item">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="sku"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Supplier Details">
+                            <group>
+                                <field name="supplier"/>
+                                <field name="category"/>
+                            </group>
+                        </page>
+                        <page string="Stock Information">
+                            <group>
+                                <field name="quantity"/>
+                                <field name="price"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_inventory_items" model="ir.actions.act_window">
+        <field name="name">Inventory Items</field>
+        <field name="res_model">inventory.item</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_inventory_root" name="Inventory Management"/>
+    
+    <menuitem id="menu_inventory_items" name="Inventory Items"
+              parent="menu_inventory_root" action="action_inventory_items"/>
+</odoo>

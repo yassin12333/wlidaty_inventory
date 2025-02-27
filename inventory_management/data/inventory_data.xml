@@ -1,0 +1,29 @@
+<odoo>
+    <!-- Données initiales pour l'inventaire -->
+    <record id="product_1" model="inventory.item">
+        <field name="name">Laptop Dell XPS</field>
+        <field name="sku">DELL-XPS-15</field>
+        <field name="quantity">15</field>
+        <field name="price">1200.50</field>
+        <field name="supplier">Dell</field>
+        <field name="category">electronics</field>
+    </record>
+
+    <record id="product_2" model="inventory.item">
+        <field name="name">iPhone 14 Pro</field>
+        <field name="sku">IPHONE-14PRO</field>
+        <field name="quantity">25</field>
+        <field name="price">999.99</field>
+        <field name="supplier">Apple</field>
+        <field name="category">electronics</field>
+    </record>
+
+    <record id="product_3" model="inventory.item">
+        <field name="name">Office Desk</field>
+        <field name="sku">DESK-OFFICE</field>
+        <field name="quantity">10</field>
+        <field name="price">250.00</field>
+        <field name="supplier">Ikea</field>
+        <field name="category">furniture</field>
+    </record>
+</odoo>
